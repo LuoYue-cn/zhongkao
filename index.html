@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中考祈福 · 六六大顺 · 金榜题名</title>
+<style>
+:root {
+  --red-deep: #8B0000;
+  --red-main: #CC0000;
+  --red-bright: #E60012;
+  --red-light: #FF3333;
+  --gold: #D4A017;
+  --gold-light: #F0C75E;
+  --gold-bright: #FFD700;
+  --gold-pale: #FFF8DC;
+  --bg-start: #660000;
+  --bg-mid: #AA0000;
+  --bg-end: #CC1100;
+  --text-light: #FFF8DC;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: "STSong","SimSun","KaiTi","楷体","Noto Serif SC",serif;
+  background: linear-gradient(180deg, var(--bg-start) 0%, var(--bg-mid) 40%, var(--bg-end) 100%);
+  min-height:100vh; color:var(--text-light); overflow-x:hidden;
+  position:relative;
+}
+.clouds { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0; }
+.cloud {
+  position:absolute; font-size:66px; opacity:0.16;
+  animation:cloudFloat 16s linear infinite;
+}
+.cloud:nth-child(1){ left:6%; top:6%; animation-delay:0s; }
+.cloud:nth-child(2){ left:26%; top:16%; animation-delay:-3s; font-size:46px; }
+.cloud:nth-child(3){ left:56%; top:6%; animation-delay:-6s; font-size:56px; }
+.cloud:nth-child(4){ left:76%; top:16%; animation-delay:-9s; font-size:36px; }
+.cloud:nth-child(5){ left:16%; top:66%; animation-delay:-12s; font-size:66px; }
+.cloud:nth-child(6){ left:66%; top:76%; animation-delay:-15s; font-size:46px; }
+@keyframes cloudFloat {
+  0% { transform:translateX(0) translateY(0); }
+  50% { transform:translateX(60px) translateY(-16px); }
+  100% { transform:translateX(0) translateY(0); }
+}
+.progress-bar-wrap {
+  position:fixed; top:0; left:0; width:100%; height:6px; z-index:1000;
+  background:rgba(0,0,0,0.3);
+}
+.progress-bar-fill {
+  height:100%; background:linear-gradient(90deg, var(--gold-bright), var(--gold-light), var(--gold-bright));
+  transition:width 0.66s ease; border-radius:0 3px 3px 0;
+  box-shadow:0 0 6px var(--gold-bright);
+}
+.progress-text {
+  position:fixed; top:8px; right:16px; z-index:1001;
+  font-size:14px; color:var(--gold-bright); font-weight:bold;
+  text-shadow:0 0 6px var(--gold);
+}
+.section-num {
+  position:fixed; top:8px; left:16px; z-index:1001;
+  font-size:14px; color:var(--gold-light);
+}
+.main-container {
+  position:relative; z-index:1;
+  max-width:600px; margin:0 auto; padding:60px 20px 40px;
+}
+.section { display:none; animation:fadeInUp 0.66s ease; }
+.section.active { display:block; }
+@keyframes fadeInUp {
+  from { opacity:0; transform:translateY(36px); }
+  to { opacity:1; transform:translateY(0); }
+}
+.entry-card {
+  background:rgba(0,0,0,0.3); border:2px solid var(--gold); border-radius:16px;
+  padding:36px 26px; text-align:center; margin-top:36px;
+  box-shadow:0 0 36px rgba(212,160,23,0.3);
+}
+.entry-card h1 { font-size:36px; color:var(--gold-bright); margin-bottom:6px; text-shadow:0 0 16px var(--gold); }
+.entry-card .subtitle { font-size:16px; color:var(--gold-light); margin-bottom:26px; }
+.entry-card input {
+  display:block; width:100%; max-width:366px; margin:0 auto 16px;
+  padding:12px 16px; border:2px solid var(--gold); border-radius:6px;
+  background:rgba(102,0,0,0.6); color:var(--gold-pale); font-size:18px;
+  text-align:center; font-family:inherit; outline:none;
+  transition:border-color 0.3s, box-shadow 0.3s;
+}
+.entry-card input:focus { border-color:var(--gold-bright); box-shadow:0 0 16px rgba(255,215,0,0.5); }
+.entry-card input::placeholder { color:rgba(255,248,220,0.4); }
+.entry-card .error-msg { color:#FF6; font-size:14px; min-height:20px; margin-bottom:6px; }
+.btn {
+  display:inline-block; padding:12px 36px; border:none; border-radius:6px;
+  font-size:18px; font-family:inherit; cursor:pointer; transition:all 0.3s;
+  font-weight:bold; letter-spacing:2px;
+}
+.btn-gold {
+  background:linear-gradient(180deg, var(--gold-bright), var(--gold));
+  color:#660000; box-shadow:0 0 16px rgba(255,215,0,0.5);
+}
+.btn-gold:hover { transform:scale(1.06); box-shadow:0 0 26px rgba(255,215,0,0.7); }
+.btn-outline { background:transparent; border:2px solid var(--gold-light); color:var(--gold-light); }
+.btn-outline:hover { background:rgba(212,160,23,0.2); }
+.nav-btns { display:flex; justify-content:space-between; gap:16px; margin-top:26px; flex-wrap:wrap; }
+.nav-btns .btn { flex:1; min-width:100px; }
+.bless-card {
+  background:rgba(0,0,0,0.25); border:2px solid var(--gold);
+  border-radius:16px; padding:26px 20px; text-align:center;
+  box-shadow:0 0 26px rgba(212,160,23,0.2); margin-top:10px;
+}
+.bless-card h2 { font-size:28px; color:var(--gold-bright); margin-bottom:6px; text-shadow:0 0 12px var(--gold); }
+.bless-card .bless-desc { font-size:14px; color:var(--gold-light); margin-bottom:16px; }
+.bless-interact {
+  min-height:266px; position:relative; overflow:hidden;
+  border-radius:12px; margin:10px 0;
+}
+.incense-stick {
+  position:absolute; bottom:20px; width:4px; height:120px;
+  background:linear-gradient(180deg, #8B4513, #D2691E);
+  border-radius:2px 2px 0 0; cursor:pointer; transition:all 0.3s;
+}
+.incense-stick.lit { box-shadow:0 0 6px #FF6600; }
+.smoke-particle {
+  position:absolute; background:rgba(200,200,200,0.6); border-radius:50%;
+  animation:smokeRise 2.6s ease-out forwards; pointer-events:none;
+}
+@keyframes smokeRise {
+  0% { transform:translateY(0) scale(1); opacity:0.8; }
+  100% { transform:translateY(-166px) scale(3); opacity:0; }
+}
+.koi {
+  position:absolute; font-size:26px; transition:all 0.6s;
+  animation:koiSwim 6s ease-in-out infinite;
+}
+@keyframes koiSwim {
+  0%,100% { transform:translateX(0) translateY(0); }
+  25% { transform:translateX(30px) translateY(-10px); }
+  50% { transform:translateX(0) translateY(-20px); }
+  75% { transform:translateX(-30px) translateY(-10px); }
+}
+.sky-lantern {
+  position:absolute; bottom:-60px; font-size:36px;
+  animation:lanternRise 6s ease-out forwards;
+}
+@keyframes lanternRise {
+  0% { transform:translateY(0) scale(0.6); opacity:0.6; }
+  20% { transform:translateY(-60px) scale(1); opacity:1; }
+  100% { transform:translateY(-366px) scale(0.3); opacity:0; }
+}
+.lot {
+  display:inline-block; width:60px; height:160px; margin:6px;
+  background:linear-gradient(180deg, #D2B48C, #F5DEB3);
+  border:2px solid #8B4513; border-radius:6px;
+  writing-mode:vertical-rl; font-size:16px; color:#8B0000;
+  font-weight:bold; padding:10px 6px;
+  transform-origin:top center;
+  animation:lotShake 0.6s ease-in-out 3;
+}
+@keyframes lotShake {
+  0%,100% { transform:rotate(0); }
+  25% { transform:rotate(-16deg); }
+  75% { transform:rotate(16deg); }
+}
+.bell-ripple {
+  position:absolute; border:2px solid var(--gold-bright); border-radius:50%;
+  animation:rippleOut 1.6s ease-out forwards; pointer-events:none;
+}
+@keyframes rippleOut {
+  0% { width:10px; height:10px; opacity:1; }
+  100% { width:366px; height:366px; opacity:0; }
+}
+.gate-arch {
+  position:absolute; top:60px; left:50%; transform:translateX(-50%);
+  font-size:66px; z-index:2;
+}
+.carp-jump {
+  position:absolute; bottom:20px; font-size:26px;
+  animation:carpLeap 1.6s ease-out forwards;
+}
+@keyframes carpLeap {
+  0% { transform:translateY(0) scale(1); }
+  50% { transform:translateY(-166px) scale(1.6); }
+  100% { transform:translateY(-200px) scale(0.6); opacity:0; }
+}
+.wenchang-lamp {
+  position:absolute; width:6px; height:6px; border-radius:50%;
+  background:rgba(255,248,220,0.3); cursor:pointer; transition:all 0.3s;
+}
+.wenchang-lamp.lit {
+  background:var(--gold-bright);
+  box-shadow:0 0 16px var(--gold-bright), 0 0 36px var(--gold);
+}
+.petal {
+  position:fixed; pointer-events:none; z-index:999;
+  animation:petalFall linear forwards;
+}
+@keyframes petalFall {
+  0% { transform:translateY(-60px) rotate(0deg) translateX(0); opacity:1; }
+  100% { transform:translateY(110vh) rotate(666deg) translateX(166px); opacity:0; }
+}
+.ribbon {
+  position:absolute; width:6px; height:66px;
+  background:linear-gradient(180deg, #CC0000, #FF3333); border-radius:3px;
+  transform-origin:top center;
+  animation:ribbonWave 2.6s ease-in-out infinite;
+}
+@keyframes ribbonWave {
+  0%,100% { transform:rotate(-6deg); }
+  50% { transform:rotate(6deg); }
+}
+.fu-char {
+  font-size:66px; display:inline-block; cursor:pointer;
+  transition:all 0.3s; user-select:none;
+}
+.fu-char.spinning { animation:fuSpin 1.6s linear infinite; }
+@keyframes fuSpin { 0%{transform:rotate(0);} 100%{transform:rotate(360deg);} }
+.river-lantern {
+  position:absolute; font-size:20px;
+  animation:lanternFlow 6s linear forwards;
+}
+@keyframes lanternFlow {
+  0% { transform:translateX(0) translateY(0); opacity:1; }
+  100% { transform:translateX(200px) translateY(60px); opacity:0; }
+}
+.dragon-mini {
+  position:absolute; font-size:26px;
+  animation:dragonDance 3.6s ease-in-out infinite;
+}
+@keyframes dragonDance {
+  0%,100% { transform:translateY(0) rotate(0); }
+  25% { transform:translateY(-16px) rotate(3deg); }
+  75% { transform:translateY(16px) rotate(-3deg); }
+}
+.golden-name {
+  font-size:46px; color:var(--gold-bright);
+  text-shadow:0 0 26px var(--gold), 0 0 66px var(--gold-bright);
+  animation:goldShine 1.6s ease-in-out infinite alternate;
+}
+@keyframes goldShine {
+  0% { text-shadow:0 0 16px var(--gold), 0 0 36px var(--gold-bright); }
+  100% { text-shadow:0 0 36px var(--gold), 0 0 96px var(--gold-bright), 0 0 120px #FFF; }
+}
+.checklist { text-align:left; max-width:400px; margin:16px auto; }
+.checklist li {
+  list-style:none; padding:6px 0; font-size:16px;
+  color:var(--gold-light); opacity:0; transform:translateX(-16px);
+  animation:checkIn 0.6s ease forwards;
+}
+.checklist li::before { content:'✅ '; margin-right:6px; }
+@keyframes checkIn { to { opacity:1; transform:translateX(0); } }
+.idiom-scroll {
+  position:fixed; bottom:6px; left:0; width:100%; z-index:500; pointer-events:none;
+  overflow:hidden; white-space:nowrap;
+}
+.idiom-scroll span {
+  display:inline-block; padding-left:100%;
+  animation:scrollLeft 26s linear infinite;
+  color:var(--gold-light); font-size:14px; opacity:0.6; letter-spacing:6px;
+}
+@keyframes scrollLeft { 0%{transform:translateX(0);} 100%{transform:translateX(-100%);} }
+.golden-spark {
+  position:fixed; pointer-events:none; z-index:998;
+  width:6px; height:6px; background:var(--gold-bright);
+  border-radius:50%; animation:sparkBurst 1.6s ease-out forwards;
+}
+@keyframes sparkBurst {
+  0% { transform:translate(0,0) scale(1); opacity:1; }
+  100% { transform:translate(var(--sx),var(--sy)) scale(0); opacity:0; }
+}
+.smoke-glowing { 
+  position:absolute; top:-6px; left:50%; width:6px; height:6px;
+  background:var(--gold-bright); border-radius:50%;
+  box-shadow:0 0 6px var(--gold-bright); display:none;
+}
+.incense-stick.lit .smoke-glowing { display:block; }
+
+@media (max-width:600px) {
+  .bless-card h2 { font-size:22px; }
+  .golden-name { font-size:32px; }
+  .entry-card h1 { font-size:26px; }
+}
+</style>
+</head>
+<body>
+
+<!-- 祥云 -->
+<div class="clouds">
+  <div class="cloud">☁️</div><div class="cloud">☁️</div><div class="cloud">☁️</div>
+  <div class="cloud">☁️</div><div class="cloud">☁️</div><div class="cloud">☁️</div>
+</div>
+
+<!-- 进度条 -->
+<div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressFill" style="width:0%"></div></div>
+<div class="progress-text" id="progressText">0%</div>
+<div class="section-num" id="sectionNum"></div>
+
+<!-- 底部吉祥成语 -->
+<div class="idiom-scroll"><span>
+六六大顺&nbsp;&nbsp;&nbsp;马到成功&nbsp;&nbsp;&nbsp;旗开得胜&nbsp;&nbsp;&nbsp;金榜题名&nbsp;&nbsp;&nbsp;
+蟾宫折桂&nbsp;&nbsp;&nbsp;鱼跃龙门&nbsp;&nbsp;&nbsp;独占鳌头&nbsp;&nbsp;&nbsp;学业有成&nbsp;&nbsp;&nbsp;
+前程似锦&nbsp;&nbsp;&nbsp;步步高升&nbsp;&nbsp;&nbsp;名列前茅&nbsp;&nbsp;&nbsp;心想事成&nbsp;&nbsp;&nbsp;
+鹏程万里&nbsp;&nbsp;&nbsp;一帆风顺&nbsp;&nbsp;&nbsp;功成名就&nbsp;&nbsp;&nbsp;状元及第
+</span></div>
+
+<div class="main-container" id="mainContainer">
+
+<!-- ====== 第0页：入口 ====== -->
+<div class="section active" id="s0">
+  <div class="entry-card">
+    <h1>🏮 中考祈福 🏮</h1>
+    <p class="subtitle">六六大顺 · 金榜题名 · 蟾宫折桂</p>
+    <input type="text" id="inputName" placeholder="请输入你的姓名（6字以内）" maxlength="6">
+    <input type="text" id="inputReg" placeholder="请输入报名号（数字）" inputmode="numeric">
+    <p class="error-msg" id="entryError"></p>
+    <button class="btn btn-gold" onclick="startBlessing()" style="font-size:22px;">✨ 进入祈福 ✨</button>
+    <p style="margin-top:16px;font-size:12px;color:var(--gold-light);opacity:0.6;">共 16 项祈福 · 每完成一项积累 6.66% 功德</p>
+  </div>
+</div>
+
+<!-- ====== 第1页：点6炷香 ====== -->
+<div class="section" id="s1">
+  <div class="bless-card">
+    <h2>🕯️ 第 1 项 · 点 6 炷香</h2>
+    <p class="bless-desc">点击香炉中 6 炷香一一点燃，青烟袅袅，通文运、达文昌</p>
+    <div class="bless-interact" id="incenseArea" style="background:linear-gradient(180deg,#3D1C00,#5C2E00);height:266px;position:relative;">
+      <div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);font-size:46px;">🪔</div>
+    </div>
+    <p id="incenseMsg" style="color:var(--gold-light);min-height:20px;"></p>
+    <div class="nav-btns"><span></span><button class="btn btn-gold" id="incenseNext" onclick="goNext()" disabled>下一个 →</button></div>
+  </div>
+</div>
+
+<!-- ====== 第2页：挂许愿签 ====== -->
+<div class="section" id="s2">
+  <div class="bless-card">
+    <h2>🏷️ 第 2 项 · 挂 6 张许愿签</h2>
+    <p class="bless-desc">写下 6 字心愿，共挂 6 张许愿签于许愿树上</p>
+    <div class="bless-interact" id="wishArea" style="background:linear-gradient(180deg,#1a3a1a,#2d5a2d);height:300px;position:relative;">
+      <div style="position:absolute;top:10px;left:50%;transform:translateX(-50%);font-size:66px;">🌳</div>
+      <div id="wishRibbons" style="position:absolute;top:66px;left:50%;transform:translateX(-50%);display:flex;gap:6px;flex-wrap:wrap;justify-content:center;max-width:90%;"></div>
+    </div>
+    <input type="text" id="wishInput" placeholder="写 6 字心愿" maxlength="6" style="display:inline-block;width:200px;padding:8px;border-radius:6px;border:2px solid var(--gold);background:rgba(102,0,0,0.6);color:var(--gold-pale);text-align:center;font-family:inherit;">
+    <button class="btn btn-gold" id="wishBtn" onclick="addWish()" style="font-size:14px;padding:8px 16px;">挂签</button>
+    <p id="wishMsg" style="color:var(--gold-light);min-height:20px;"></p>
+    <div class="nav-btns"><button class="btn btn-outline" onclick="goPrev()">← 上一个</button><button class="btn btn-gold" id="wishNext" onclick="goNext()" disabled>下一个 →</button></div>
+  </div>
+</div>
+
+<!-- ====== 第3页：投喂锦鲤 ====== -->
+<div class="section" id="s3">
+  <div class="bless-card">
+    <h2>🐟 第 3 项 · 投喂 6 条锦鲤</h2>
+    <p class="bless-desc">点击池塘投喂 6 颗鱼食，锦鲤游来，好运"鱼"你同行</p>
+    <div class="bless-interact" id="koiArea" style="background:linear-gradient(180deg,#1a3a5c,#2a5a8c);height:300px;position:relative;overflow:hidden;"></div>
+    <p id="koiMsg" style="color:var(--gold-light);min-height:20px;">点击池塘投喂鱼食 🐟</p>
+    <div class="nav-btns"><button class="btn btn-outline" onclick="goPrev()">← 上一个</button><button class="btn btn-gold" id="koiNext" onclick="goNext()" disabled>下一个 →</button></div>
+  </div>
+</div>
+
+<!-- ====== 第4页：放天灯 ====== -->
+<div class="section" id="s4">
+  <div class="bless-card">
+    <h2>🏮 第 4 项 · 放 6 盏天灯</h2>
+    <p class="bless-desc">6 盏孔明灯排队升空，每盏间隔 0.66 秒，心愿上达天听</p>
+    <div class="bless-interact" id="lanternArea" style="background:linear-gradient(180deg,#1a1a3a,#2a2a5a);height:300px;position:relative;overflow:hidden;"></div>
+    <p id="lanternMsg" style="color:var(--gold-light);min-height:20px;"></p>
+    <div class="nav-btns"><button class="btn btn-outline" onclick="goPrev()">← 上一个</button><button class="btn btn-gold" id="lanternNext" onclick="goNext()" disabled>下一个 →</button></div>
+  </div>
+</div>
+
+<!-- ====== 第5页：求签 ====== -->
+<div class="section" id="s5">
+  <div class="bless-card">
+    <h2>🎋 第 5 项 · 求 6 支上上签</h2>
+    <p class="bless-desc">摇动签筒，求得 6 支上上签，签签大吉</p>
+    <div class="bless-interact" id="lotArea" style="background:linear-gradient(180deg,#3D1C00,#5C2E00);height:300px;position:relative;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;padding:10px;"><div style="font-size:46px;">🎋</div></div>
+    <button class="btn btn-gold" id="lotBtn" onclick="shakeLots()">🎋 摇签筒</button>
+    <p id="lotMsg" style="color:var(--gold-light);min-height:20px;"></p>
+    <div class="nav-btns"><button class="btn btn-outline" onclick="goPrev()">← 上一个</button><button class="btn btn-gold" id="lotNext" onclick="goNext()" disabled>下一个 →</button></div>
+  </div>
+</div>
+
+<!-- ====== 第6页：敲钟 ====== -->
+<div class="section" id="s6">
+  <div class="bless-card">
+    <h2>🔔 第 6 项 · 敲状元钟 6 响</h2>
+    <p class="bless-desc">撞钟 6 次，声震四方，第 6 响金光四射，一鸣惊人</p>
+    <div class="bless-interact" id="bellArea" style="background:linear-gradient(180deg,#3D1C00,#5C2E00);height:300px;position:relative;display:flex;align-items:center;justify-content:center;">
+      <div id="bellIcon" style="font-size:66px;cursor:pointer;transition:all 0.1s;user-select:none;" onclick="ringBell()">🔔</div>
+    </div>
+    <p id="bellMsg" style="color:var(--gold-light);min-height:20px;">点击大钟 🔔</p>
+    <div class="nav-btns"><button class="btn btn-outline" onclick="goPrev()">← 上一个</button><button class="btn btn-gold" id="bellNext" onclick="goNext()" disabled>下一个 →</button></div>
+  </div>
+</div>
+
+<!-- ====== 第7页：鲤跃龙门 ====== -->
+<div class="section" id="s7">
+  <div class="bless-card">
+    <h2>🐉 第 7 项 · 鲤跃龙门 ×6</h2>
+    <p class="bless-desc">6 条鲤鱼依次跳过龙门化身成龙，前程似锦</p>
+    <div class="bless-interact" id="gateArea" style="background:linear-gradient(180deg,#1a3a5c,#2a5a8c);height:300px;position:relative;overflow:hidden;">
+      <div class="gate-arch">🏯</div>
+    </div>
+    <p id="gateMsg" style="color:var(--gold-light);min-height:20px;">点击画面送鲤鱼跃龙门 🐟</p>
+    <div class="nav-btns"><button class="btn btn-outline" onclick="goPrev()">← 上一个</button><button class="btn btn-gold" id="gateNext" onclick="goNext()" disabled>下一个 →</button></div>
+  </div>
+</div>
+
+<!-- ====== 第8页：系红丝带 ====== -->
+<div class="section" id="s8">
+  <div class="bless-card">
+    <h2>🎀 第 8 项 · 系 6 条红丝带</h2>
+    <p class="bless-desc">6 条红丝带系上许愿枝，红运当头</p>
+    <div class="bless-interact" id="ribbonArea" style="background:linear-gradient(180deg,#1a3a1a,#2d5a2d);height:300px;position:relative;">
+      <div style="position:absolute;top:10px;left:50%;transform:translateX(-50%);font-size:46px;">🌿</div>
+      <div id="ribbonBranch" style="position:absolute;top:60px;left:50%;transform:translateX(-50%);width:266px;height:6px;background:#8B4513;border-radius:3px;cursor:pointer;"></div>
+    </div>
+    <p id="ribbonMsg" style="color:var(--gold-light);min-height:20px;">点击树枝系上红丝带 🎀</p>
+    <div class="nav-btns"><button class="btn btn-outline" onclick="goPrev()">← 上一个</button><button class="btn btn-gold" id="ribbonNext" onclick="goNext()" disabled>下一个 →</button></div>
+  </div>
+</div>
+
+<!-- ====== 第9页：摸福字 ====== -->
+<div class="section" id="s9">
+  <div class="bless-card">
+    <h2>🧧 第 9 项 · 摸"福"字 6 次</h2>
+    <p class="bless-desc">点击旋转的"福"字 6 次，摸福得福，福星高照</p>
+    <div class="bless-interact" id="fuArea" style="background:linear-gradient(180deg,#660000,#990000);height:300px;position:relative;display:flex;align-items:center;justify-content:center;">
+      <span class="fu-char spinning" id="fuChar" onclick="touchFu()">福</span>
+    </div>
+    <p id="fuMsg" style="color:var(--gold-light);min-height:20px;">点击"福"字沾福气 🧧</p>
+    <div class="nav-btns"><button class="btn btn-outline" onclick="goPrev()">← 上一个</button><button class="btn btn-gold" id="fuNext" onclick="goNext()" disabled>下一个 →</button></div>
+  </div>
+</div>
+
+<!-- ====== 第10页：文昌灯 ====== -->
+<div class="section" id="s10">
+  <div class="bless-card">
+    <h2>💡 第 10 项 · 点 66 盏文昌灯</h2>
+    <p class="bless-desc">在文昌星图上点亮 66 盏灯，照亮前程</p>
+    <div class="bless-interact" id="lampArea" style="background:linear-gradient(180deg,#0a0a2a,#1a1a4a);height:300px;position:relative;overflow:hidden;"></div>
+    <p id="lampMsg" style="color:var(--gold-light);min-height:20px;">点击星空点亮文昌灯 ✨</p>
+    <div class="nav-btns"><button class="btn btn-outline" onclick="goPrev()">← 上一个</button><button class="btn btn-gold" id="lampNext" onclick="goNext()" disabled>下一个 →</button></div>
+  </div>
+</div>
+
+<!-- ====== 第11页：金榜题名 ====== -->
+<div class="section" id="s11">
+  <div class="bless-card">
+    <h2>📜 第 11 项 · 金榜题名</h2>
+    <p class="bless-desc">你的姓名以 6 种鎏金大字闪耀金榜之上</p>
+    <div class="bless-interact" id="goldenListArea" style="background:linear-gradient(180deg,#5C2E00,#8B4513);min-height:300px;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+      <div id="goldenNames" style="text-align:center;"></div>
+    </div>
+    <p id="goldenListMsg" style="color:var(--gold-light);min-height:20px;"></p>
+    <div class="nav-btns"><button class="btn btn-outline" onclick="goPrev()">← 上一个</button><button class="btn btn-gold" id="goldenListNext" onclick="goNext()" disabled>下一个 →</button></div>
+  </div>
+</div>
+
+<!-- ====== 第12页：撒桂花 ====== -->
+<div class="section" id="s12">
+  <div class="bless-card">
+    <h2>🌸 第 12 项 · 撒 666 片桂花</h2>
+    <p class="bless-desc">666 片桂花雨纷纷飘落，蟾宫折桂，金桂满堂</p>
+    <div class="bless-interact" id="petalArea" style="background:linear-gradient(180deg,#660000,#990000);height:300px;position:relative;display:flex;align-items:center;justify-content:center;">
+      <span style="font-size:66px;">🌕</span>
+    </div>
+    <p id="petalMsg" style="color:var(--gold-light);min-height:20px;"></p>
+    <div class="nav-btns"><button class="btn btn-outline" onclick="goPrev()">← 上一个</button><button class="btn btn-gold" id="petalNext" onclick="goNext()" disabled>下一个 →</button></div>
+  </div>
+</div>
+
+<!-- ====== 第13页：拜文曲星 ====== -->
+<div class="section" id="s13">
+  <div class="bless-card">
+    <h2>⭐ 第 13 项 · 拜文曲星 6 拜</h2>
+    <p class="bless-desc">叩拜文曲星 6 次，文运亨通，才思泉涌</p>
+    <div class="bless-interact" id="wenquArea" style="background:linear-gradient(180deg,#1a1a3a,#2a2a5a);height:300px;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+      <div style="font-size:66px;cursor:pointer;user-select:none;transition:transform 0.3s;" id="wenquStar" onclick="bowWenqu()">⭐</div>
+      <p style="color:var(--gold-light);font-size:14px;">文 曲 星</p>
+    </div>
+    <p id="wenquMsg" style="color:var(--gold-light);min-height:20px;">点击文曲星叩拜 🙏</p>
+    <div class="nav-btns"><button class="btn btn-outline" onclick="goPrev()">← 上一个</button><button class="btn btn-gold" id="wenquNext" onclick="goNext()" disabled>下一个 →</button></div>
+  </div>
+</div>
+
+<!-- ====== 第14页：转经筒 ====== -->
+<div class="section" id="s14">
+  <div class="bless-card">
+    <h2>🪔 第 14 项 · 转经筒 6 圈</h2>
+    <p class="bless-desc">转动经筒 6 圈，每圈诵念六字真言，福慧双增</p>
+    <div class="bless-interact" id="wheelArea" style="background:linear-gradient(180deg,#3D1C00,#5C2E00);height:300px;position:relative;display:flex;align-items:center;justify-content:center;">
+      <div id="prayerWheel" style="font-size:66px;cursor:pointer;user-select:none;transition:transform 0.66s;" onclick="turnWheel()">🪔</div>
+    </div>
+    <p id="wheelMsg" style="color:var(--gold-light);min-height:20px;">点击经筒转动 🙏</p>
+    <div class="nav-btns"><button class="btn btn-outline" onclick="goPrev()">← 上一个</button><button class="btn btn-gold" id="wheelNext" onclick="goNext()" disabled>下一个 →</button></div>
+  </div>
+</div>
+
+<!-- ====== 第15页：放河灯 ====== -->
+<div class="section" id="s15">
+  <div class="bless-card">
+    <h2>🏮 第 15 项 · 放 6 盏河灯</h2>
+    <p class="bless-desc">6 盏河灯顺水漂流，照亮前路，一帆风顺</p>
+    <div class="bless-interact" id="riverArea" style="background:linear-gradient(180deg,#1a2a4a,#2a4a6a);height:300px;position:relative;overflow:hidden;">
+      <div style="position:absolute;bottom:0;width:100%;height:66px;background:linear-gradient(180deg,transparent,rgba(30,80,120,0.6));"></div>
+    </div>
+    <p id="riverMsg" style="color:var(--gold-light);min-height:20px;"></p>
+    <div class="nav-btns"><button class="btn btn-outline" onclick="goPrev()">← 上一个</button><button class="btn btn-gold" id="riverNext" onclick="goNext()" disabled>下一个 →</button></div>
+  </div>
+</div>
+
+<!-- ====== 第16页：舞龙 ====== -->
+<div class="section" id="s16">
+  <div class="bless-card">
+    <h2>🐉 第 16 项 · 六龙汇聚</h2>
+    <p class="bless-desc">6 条小龙汇聚成一条大金龙，吐出"金榜题名"横幅</p>
+    <div class="bless-interact" id="dragonArea" style="background:linear-gradient(180deg,#660000,#990000);height:300px;position:relative;overflow:hidden;"></div>
+    <p id="dragonMsg" style="color:var(--gold-light);min-height:20px;"></p>
+    <div class="nav-btns"><button class="btn btn-outline" onclick="goPrev()">← 上一个</button><button class="btn btn-gold" id="dragonNext" onclick="finishAll()">✨ 功德圆满 ✨</button></div>
+  </div>
+</div>
+
+<!-- ====== 第17页：功德圆满 ====== -->
+<div class="section" id="s17">
+  <div class="bless-card" style="text-align:center;">
+    <h2 style="font-size:36px;">🎉 功德圆满 🎉</h2>
+    <p style="font-size:16px;color:var(--gold-light);">16 项祈福全部完成</p>
+    <p style="font-size:20px;color:var(--gold-bright);margin:6px 0;">进度：106.56% → 功德圆满</p>
+    <div class="golden-name" id="finalName"></div>
+    <p style="color:var(--gold-light);margin:6px 0;">报名号：<span id="finalReg" style="color:var(--gold-bright);"></span></p>
+    <ul class="checklist" id="checklist"></ul>
+    <p style="font-size:26px;color:var(--gold-bright);margin:16px 0;text-shadow:0 0 26px var(--gold);">🏆 金榜题名 🏆</p>
+    <button class="btn btn-gold" onclick="restartAll()" style="margin-top:16px;">🔄 重新祈福</button>
+  </div>
+</div>
+
+</div><!-- /main-container -->
+
+<script>
+/* ========== 全局状态 ========== */
+const TOTAL = 16;
+const FACTOR = 6.66;
+let current = 0;
+let userName = '';
+let userReg = '';
+const completed = new Array(TOTAL+1).fill(false);
+
+function updateProgress() {
+  const n = completed.filter(function(v,i){return i>=1&&i<=TOTAL&&v;}).length;
+  const pct = (n * FACTOR).toFixed(2);
+  var fill = document.getElementById('progressFill');
+  var txt = document.getElementById('progressText');
+  fill.style.width = (n === TOTAL ? 100 : Math.min(n * FACTOR, 100)) + '%';
+  txt.textContent = n === TOTAL ? '功德圆满' : (pct + '%');
+  document.getElementById('sectionNum').textContent = current>=1&&current<=TOTAL ? '第 '+current+' / '+TOTAL+' 项' : '';
+}
+
+function showSection(n) {
+  var secs = document.querySelectorAll('.section');
+  for (var i = 0; i < secs.length; i++) secs[i].classList.remove('active');
+  var sec = document.getElementById('s'+n);
+  if (sec) sec.classList.add('active');
+  current = n;
+  updateProgress();
+  if (n >= 1 && n <= TOTAL && !completed[n]) initBlessing(n);
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function goNext() {
+  if (current >= 1 && current <= TOTAL) { completed[current] = true; updateProgress(); }
+  if (current < TOTAL) showSection(current + 1);
+  else if (current === TOTAL) finishAll();
+}
+function goPrev() { if (current > 1) showSection(current - 1); }
+
+/* ========== 入口验证 ========== */
+function startBlessing() {
+  var nameEl = document.getElementById('inputName');
+  var regEl = document.getElementById('inputReg');
+  var errEl = document.getElementById('entryError');
+  userName = nameEl.value.trim();
+  userReg = regEl.value.trim();
+  if (!userName) { errEl.textContent = '请输入姓名！'; return; }
+  if (userName.length > 6) { errEl.textContent = '姓名最多 6 个字！'; return; }
+  if (!/^\d+$/.test(userReg)) { errEl.textContent = '报名号必须为数字！'; return; }
+  errEl.textContent = '';
+  showSection(1);
+}
+
+/* ========== 金光粒子 ========== */
+function spawnSparks(x, y, count) {
+  for (var i = 0; i < count; i++) {
+    var s = document.createElement('div');
+    s.className = 'golden-spark';
+    s.style.left = x + 'px'; s.style.top = y + 'px';
+    s.style.setProperty('--sx', (Math.random()-0.5)*166+'px');
+    s.style.setProperty('--sy', (Math.random()-0.5)*166+'px');
+    document.body.appendChild(s);
+    setTimeout(function(){ s.remove(); }, 1600);
+  }
+}
+
+function spawnPetals(count) {
+  for (var i = 0; i < count; i++) {
+    (function(idx){
+      setTimeout(function(){
+        var p = document.createElement('div');
+        p.className = 'petal';
+        p.style.left = Math.random()*100+'%'; p.style.top = '-20px';
+        p.style.animationDuration = (3+Math.random()*6)+'s';
+        p.textContent = Math.random()>0.5 ? '🌸' : '🌼';
+        p.style.fontSize = (10+Math.random()*16)+'px';
+        document.body.appendChild(p);
+        setTimeout(function(){ p.remove(); }, 10000);
+      }, idx*6);
+    })(i);
+  }
+}
+
+/* ========== 祈福项初始化路由 ========== */
+function initBlessing(n) {
+  switch(n) {
+    case 1: initIncense(); break;
+    case 2: initWish(); break;
+    case 3: initKoi(); break;
+    case 4: initLantern(); break;
+    case 5: initLots(); break;
+    case 6: initBell(); break;
+    case 7: initGate(); break;
+    case 8: initRibbon(); break;
+    case 9: initFu(); break;
+    case 10: initLamps(); break;
+    case 11: initGoldenList(); break;
+    case 12: initPetals(); break;
+    case 13: initWenqu(); break;
+    case 14: initWheel(); break;
+    case 15: initRiver(); break;
+    case 16: initDragon(); break;
+  }
+}
+
+/* -------- 1. 点6炷香 -------- */
+var incenseLit = 0;
+function initIncense() {
+  incenseLit = 0;
+  var area = document.getElementById('incenseArea');
+  area.querySelectorAll('.incense-stick,.smoke-particle').forEach(function(e){e.remove();});
+  document.getElementById('incenseMsg').textContent = '点击香点燃 🕯️';
+  document.getElementById('incenseNext').disabled = true;
+  var positions = [60,116,172,228,284,340];
+  positions.forEach(function(left,i){
+    var stick = document.createElement('div');
+    stick.className = 'incense-stick';
+    stick.style.left = left+'px'; stick.style.bottom = '26px'; stick.style.height = '120px';
+    stick.innerHTML = '<div class="smoke-glowing"></div>';
+    stick.onclick = function(e){
+      if (this.classList.contains('lit')) return;
+      this.classList.add('lit');
+      incenseLit++;
+      document.getElementById('incenseMsg').textContent = '已点燃 '+incenseLit+' / 6 炷香';
+      var rect = this.getBoundingClientRect();
+      for (var j = 0; j < 6; j++) {
+        (function(that,idx){
+          setTimeout(function(){
+            var p = document.createElement('div');
+            p.className = 'smoke-particle';
+            p.style.left = (Math.random()*16-8)+'px'; p.style.top = '0px';
+            that.appendChild(p);
+            setTimeout(function(){ p.remove(); }, 2600);
+          }, idx*166);
+        })(this, j);
+      }
+      if (incenseLit >= 6) {
+        document.getElementById('incenseMsg').textContent = '6 炷香已全部点燃！香烟袅袅，文运畅通 🙏';
+        document.getElementById('incenseNext').disabled = false;
+        spawnSparks(rect.left+rect.width/2, rect.top, 16);
+      }
+    };
+    area.appendChild(stick);
+  });
+}
+
+/* -------- 2. 挂许愿签 -------- */
+var wishCount = 0;
+function initWish() {
+  wishCount = 0;
+  document.getElementById('wishInput').value = '';
+  document.getElementById('wishMsg').textContent = '写下 6 字心愿，挂上 6 张签';
+  document.getElementById('wishNext').disabled = true;
+  document.getElementById('wishBtn').disabled = false;
+  document.getElementById('wishRibbons').innerHTML = '';
+}
+function addWish() {
+  if (wishCount >= 6) return;
+  var input = document.getElementById('wishInput');
+  var wish = input.value.trim();
+  if (!wish) { document.getElementById('wishMsg').textContent = '请先写下心愿！'; return; }
+  if (wish.length > 6) { document.getElementById('wishMsg').textContent = '心愿最多 6 个字！'; return; }
+  wishCount++;
+  var container = document.getElementById('wishRibbons');
+  var tag = document.createElement('span');
+  tag.style.cssText = 'display:inline-block;background:#CC0000;color:var(--gold-bright);padding:6px 12px;border-radius:0 6px 6px 0;font-size:14px;border-left:3px solid var(--gold);animation:fadeInUp 0.66s ease;';
+  tag.textContent = wish;
+  container.appendChild(tag);
+  document.getElementById('wishMsg').textContent = '已挂 '+wishCount+' / 6 张许愿签';
+  input.value = '';
+  if (wishCount >= 6) {
+    document.getElementById('wishMsg').textContent = '6 张许愿签已全部挂好！愿你所愿，皆能实现 🙏';
+    document.getElementById('wishNext').disabled = false;
+    document.getElementById('wishBtn').disabled = true;
+  }
+}
+
+/* -------- 3. 投喂锦鲤 -------- */
+var koiFed = 0;
+function initKoi() {
+  koiFed = 0;
+  var area = document.getElementById('koiArea');
+  area.querySelectorAll('.koi').forEach(function(e){e.remove();});
+  document.getElementById('koiMsg').textContent = '点击池塘投喂鱼食 🐟';
+  document.getElementById('koiNext').disabled = true;
+  for (var i = 0; i < 6; i++) {
+    var k = document.createElement('span');
+    k.className = 'koi'; k.textContent = '🐟';
+    k.style.left = (10+i*14)+'%'; k.style.top = (20+Math.random()*50)+'%';
+    k.style.animationDelay = (i*-1)+'s';
+    area.appendChild(k);
+  }
+  area.onclick = function(e){
+    if (koiFed >= 6) return;
+    koiFed++;
+    var rect = area.getBoundingClientRect();
+    var x = e.clientX - rect.left, y = e.clientY - rect.top;
+    var kois = area.querySelectorAll('.koi');
+    if (kois[koiFed-1]) {
+      kois[koiFed-1].style.left = x+'px'; kois[koiFed-1].style.top = y+'px';
+      kois[koiFed-1].style.fontSize = '36px'; kois[koiFed-1].textContent = '🐠';
+      kois[koiFed-1].style.animation = 'none';
+      setTimeout(function(idx){
+        kois[idx].style.fontSize = '26px'; kois[idx].textContent = '🐟';
+        kois[idx].style.animation = 'koiSwim 6s ease-in-out infinite';
+        kois[idx].style.animationDelay = '0s';
+      }.bind(null, koiFed-1), 600);
+    }
+    var food = document.createElement('span');
+    food.textContent = '●';
+    food.style.cssText = 'position:absolute;color:#FF6600;font-size:10px;pointer-events:none;animation:smokeRise 1.6s ease-out forwards;';
+    food.style.left = x+'px'; food.style.top = y+'px';
+    area.appendChild(food);
+    setTimeout(function(){ food.remove(); }, 1600);
+    document.getElementById('koiMsg').textContent = '已投喂 '+koiFed+' / 6 颗鱼食';
+    if (koiFed >= 6) {
+      document.getElementById('koiMsg').textContent = '6 条锦鲤全部喂饱！好运"鱼"你同行 🐟';
+      document.getElementById('koiNext').disabled = false;
+      spawnSparks(e.clientX, e.clientY, 6);
+    }
+  };
+}
+
+/* -------- 4. 放天灯 -------- */
+var lanternCount = 0;
+function initLantern() {
+  lanternCount = 0;
+  document.getElementById('lanternMsg').textContent = '6 盏天灯将依次升空 🏮';
+  document.getElementById('lanternNext').disabled = true;
+  document.getElementById('lanternArea').querySelectorAll('.sky-lantern').forEach(function(e){e.remove();});
+  for (var i = 0; i < 6; i++) {
+    (function(idx){
+      setTimeout(function(){
+        var area = document.getElementById('lanternArea');
+        var l = document.createElement('span');
+        l.className = 'sky-lantern'; l.textContent = '🏮';
+        l.style.left = (10+idx*16)+'%';
+        l.style.animationDuration = (4+idx*0.6)+'s';
+        area.appendChild(l);
+        setTimeout(function(){ l.remove(); }, 6000);
+        lanternCount++;
+        document.getElementById('lanternMsg').textContent = '第 '+lanternCount+' / 6 盏天灯升空 🏮';
+        if (lanternCount >= 6) {
+          setTimeout(function(){
+            document.getElementById('lanternMsg').textContent = '6 盏天灯全部放飞！心愿上达天听 🙏';
+            document.getElementById('lanternNext').disabled = false;
+          }, 600);
+        }
+      }, idx*660);
+    })(i);
+  }
+}
+
+/* -------- 5. 求签 -------- */
+var lotShaken = false;
+function initLots() {
+  lotShaken = false;
+  document.getElementById('lotMsg').textContent = '点击按钮摇签筒 🎋';
+  document.getElementById('lotNext').disabled = true;
+  document.getElementById('lotBtn').disabled = false;
+  document.getElementById('lotArea').querySelectorAll('.lot').forEach(function(e){e.remove();});
+}
+function shakeLots() {
+  if (lotShaken) return;
+  lotShaken = true;
+  document.getElementById('lotBtn').disabled = true;
+  var area = document.getElementById('lotArea');
+  document.getElementById('lotMsg').textContent = '摇签中…… 🎋';
+  var signs = ['上上签·金榜题名','上上签·独占鳌头','上上签·学业有成','上上签·名列前茅','上上签·才思泉涌','上上签·旗开得胜'];
+  for (var i = 0; i < 6; i++) {
+    (function(idx){
+      setTimeout(function(){
+        var lot = document.createElement('div');
+        lot.className = 'lot'; lot.textContent = signs[idx];
+        area.appendChild(lot);
+        document.getElementById('lotMsg').textContent = '已求得 '+(idx+1)+' / 6 支签';
+        if (idx === 5) {
+          document.getElementById('lotMsg').textContent = '6 支上上签！签签大吉，好运连连 🎋';
+          document.getElementById('lotNext').disabled = false;
+        }
+      }, idx*660);
+    })(i);
+  }
+}
+
+/* -------- 6. 敲钟 -------- */
+var bellRings = 0;
+function initBell() {
+  bellRings = 0;
+  document.getElementById('bellMsg').textContent = '点击大钟敲响 6 次 🔔';
+  document.getElementById('bellNext').disabled = true;
+  document.getElementById('bellArea').querySelectorAll('.bell-ripple').forEach(function(e){e.remove();});
+}
+function ringBell() {
+  if (bellRings >= 6) return;
+  bellRings++;
+  var bell = document.getElementById('bellIcon');
+  bell.style.transform = 'rotate(-16deg)';
+  setTimeout(function(){ bell.style.transform = 'rotate(16deg)'; }, 66);
+  setTimeout(function(){ bell.style.transform = 'rotate(0)'; }, 132);
+  var area = document.getElementById('bellArea');
+  var ripple = document.createElement('div');
+  ripple.className = 'bell-ripple';
+  ripple.style.left = '50%'; ripple.style.top = '50%';
+  ripple.style.transform = 'translate(-50%,-50%)';
+  area.appendChild(ripple);
+  setTimeout(function(){ ripple.remove(); }, 1600);
+  document.getElementById('bellMsg').textContent = '已敲 '+bellRings+' / 6 响 🔔';
+  if (bellRings >= 6) {
+    document.getElementById('bellMsg').textContent = '6 响状元钟！声震四方，一鸣惊人 🔔';
+    document.getElementById('bellNext').disabled = false;
+    var rect = bell.getBoundingClientRect();
+    spawnSparks(rect.left+rect.width/2, rect.top+rect.height/2, 66);
+  }
+}
+
+/* -------- 7. 鲤跃龙门 -------- */
+var gateJumps = 0;
+function initGate() {
+  gateJumps = 0;
+  document.getElementById('gateMsg').textContent = '点击画面送鲤鱼跃龙门 🐟';
+  document.getElementById('gateNext').disabled = true;
+  document.getElementById('gateArea').querySelectorAll('.carp-jump').forEach(function(e){e.remove();});
+  document.getElementById('gateArea').onclick = function(e){
+    if (gateJumps >= 6) return;
+    gateJumps++;
+    var area = document.getElementById('gateArea');
+    var rect = area.getBoundingClientRect();
+    var carp = document.createElement('span');
+    carp.className = 'carp-jump'; carp.textContent = '🐟';
+    carp.style.left = (e.clientX - rect.left)+'px';
+    area.appendChild(carp);
+    setTimeout(function(){ carp.textContent = '🐉'; carp.style.fontSize = '36px'; }, 800);
+    setTimeout(function(){ carp.remove(); }, 1600);
+    document.getElementById('gateMsg').textContent = '第 '+gateJumps+' / 6 条鲤鱼跳过龙门 🐟→🐉';
+    if (gateJumps >= 6) {
+      document.getElementById('gateMsg').textContent = '6 条鲤鱼全部化龙！鱼跃龙门，前程似锦 🐉';
+      document.getElementById('gateNext').disabled = false;
+      spawnSparks(e.clientX, e.clientY, 36);
+    }
+  };
+}
+
+/* -------- 8. 系红丝带 -------- */
+var ribbonCount = 0;
+function initRibbon() {
+  ribbonCount = 0;
+  document.getElementById('ribbonMsg').textContent = '点击树枝系上红丝带 🎀';
+  document.getElementById('ribbonNext').disabled = true;
+  document.getElementById('ribbonArea').querySelectorAll('.ribbon').forEach(function(e){e.remove();});
+  document.getElementById('ribbonBranch').onclick = function(e){
+    if (ribbonCount >= 6) return;
+    ribbonCount++;
+    var area = document.getElementById('ribbonArea');
+    var rect = area.getBoundingClientRect();
+    var ribbon = document.createElement('div');
+    ribbon.className = 'ribbon';
+    ribbon.style.left = (e.clientX-rect.left-3)+'px'; ribbon.style.top = '66px';
+    ribbon.style.animationDelay = (Math.random()*2)+'s';
+    area.appendChild(ribbon);
+    document.getElementById('ribbonMsg').textContent = '已系 '+ribbonCount+' / 6 条红丝带 🎀';
+    if (ribbonCount >= 6) {
+      document.getElementById('ribbonMsg').textContent = '6 条红丝带全部系好！鸿运当头，心想事成 🎀';
+      document.getElementById('ribbonNext').disabled = false;
+    }
+  };
+}
+
+/* -------- 9. 摸福字 -------- */
+var fuTouches = 0;
+function initFu() {
+  fuTouches = 0;
+  document.getElementById('fuMsg').textContent = '点击"福"字沾福气 🧧';
+  document.getElementById('fuNext').disabled = true;
+  document.getElementById('fuChar').classList.add('spinning');
+}
+function touchFu() {
+  if (fuTouches >= 6) return;
+  fuTouches++;
+  var fu = document.getElementById('fuChar');
+  fu.style.transform = 'scale(1.6)';
+  setTimeout(function(){ fu.style.transform = ''; }, 166);
+  var rect = fu.getBoundingClientRect();
+  spawnSparks(rect.left+rect.width/2, rect.top+rect.height/2, 6);
+  document.getElementById('fuMsg').textContent = '第 '+fuTouches+' / 6 次摸福 🧧';
+  if (fuTouches >= 6) {
+    document.getElementById('fuMsg').textContent = '摸福 6 次！福星高照，福气满满 🧧';
+    document.getElementById('fuNext').disabled = false;
+    document.getElementById('fuChar').classList.remove('spinning');
+    spawnSparks(rect.left+rect.width/2, rect.top+rect.height/2, 36);
+  }
+}
+
+/* -------- 10. 文昌灯 -------- */
+var lampsLit = 0;
+var LAMP_TOTAL = 66;
+function initLamps() {
+  lampsLit = 0;
+  var area = document.getElementById('lampArea');
+  area.querySelectorAll('.wenchang-lamp').forEach(function(e){e.remove();});
+  document.getElementById('lampMsg').textContent = '点击星空点亮文昌灯 ✨ (0/'+LAMP_TOTAL+')';
+  document.getElementById('lampNext').disabled = true;
+  var w = area.offsetWidth || 560, h = area.offsetHeight || 300;
+  for (var i = 0; i < LAMP_TOTAL; i++) {
+    var lamp = document.createElement('div');
+    lamp.className = 'wenchang-lamp';
+    lamp.style.left = (6+Math.random()*(w-12))+'px';
+    lamp.style.top = (6+Math.random()*(h-12))+'px';
+    lamp.onclick = function(e){
+      if (this.classList.contains('lit')) return;
+      this.classList.add('lit');
+      lampsLit++;
+      document.getElementById('lampMsg').textContent = '已点亮 '+lampsLit+' / '+LAMP_TOTAL+' 盏文昌灯 ✨';
+      if (lampsLit >= LAMP_TOTAL) {
+        document.getElementById('lampMsg').textContent = '66 盏文昌灯全部点亮！文运亨通，前程似锦 ✨';
+        document.getElementById('lampNext').disabled = false;
+        spawnSparks(e.clientX, e.clientY, 66);
+      }
+    };
+    area.appendChild(lamp);
+  }
+}
+
+/* -------- 11. 金榜题名 -------- */
+var goldenShown = 0;
+function initGoldenList() {
+  goldenShown = 0;
+  document.getElementById('goldenNames').innerHTML = '';
+  document.getElementById('goldenListMsg').textContent = '';
+  document.getElementById('goldenListNext').disabled = true;
+  var styles = [
+    'font-size:36px;',
+    'font-size:42px;font-style:italic;',
+    'font-size:30px;font-weight:bold;letter-spacing:6px;',
+    'font-size:46px;text-shadow:0 0 26px var(--gold-bright);',
+    'font-size:32px;font-family:"KaiTi","楷体",serif;',
+    'font-size:50px;font-weight:bold;'
+  ];
+  for (var i = 0; i < 6; i++) {
+    (function(idx){
+      setTimeout(function(){
+        var div = document.getElementById('goldenNames');
+        var span = document.createElement('div');
+        span.className = 'golden-name'; span.style.cssText = styles[idx];
+        span.textContent = userName;
+        div.appendChild(span);
+        goldenShown++;
+        document.getElementById('goldenListMsg').textContent = '第 '+goldenShown+' / 6 次题名 ✨';
+        if (goldenShown >= 6) {
+          document.getElementById('goldenListMsg').textContent = '金榜题名！'+userName+'，必定高中 🏆';
+          document.getElementById('goldenListNext').disabled = false;
+        }
+      }, idx*660);
+    })(i);
+  }
+}
+
+/* -------- 12. 撒桂花 -------- */
+function initPetals() {
+  document.getElementById('petalMsg').textContent = '桂花即将飘落……';
+  document.getElementById('petalNext').disabled = true;
+  spawnPetals(666);
+  setTimeout(function(){
+    document.getElementById('petalMsg').textContent = '666 片桂花雨！蟾宫折桂，金桂满堂 🌸';
+    document.getElementById('petalNext').disabled = false;
+  }, 6000);
+}
+
+/* -------- 13. 拜文曲星 -------- */
+var bowCount = 0;
+function initWenqu() {
+  bowCount = 0;
+  document.getElementById('wenquMsg').textContent = '点击文曲星叩拜 🙏';
+  document.getElementById('wenquNext').disabled = true;
+  document.getElementById('wenquStar').style.transform = '';
+}
+function bowWenqu() {
+  if (bowCount >= 6) return;
+  bowCount++;
+  var star = document.getElementById('wenquStar');
+  star.style.transform = 'scale(1.6)';
+  setTimeout(function(){ star.style.transform = 'scale(1)'; }, 300);
+  var rect = star.getBoundingClientRect();
+  spawnSparks(rect.left+rect.width/2, rect.top+rect.height/2, 6);
+  document.getElementById('wenquMsg').textContent = '已叩拜 '+bowCount+' / 6 拜 🙏';
+  if (bowCount >= 6) {
+    document.getElementById('wenquMsg').textContent = '叩拜文曲星 6 拜！文运亨通，才思泉涌 ⭐';
+    document.getElementById('wenquNext').disabled = false;
+    spawnSparks(rect.left+rect.width/2, rect.top+rect.height/2, 36);
+  }
+}
+
+/* -------- 14. 转经筒 -------- */
+var wheelTurns = 0;
+function initWheel() {
+  wheelTurns = 0;
+  document.getElementById('wheelMsg').textContent = '点击经筒转动 🙏';
+  document.getElementById('wheelNext').disabled = true;
+  document.getElementById('prayerWheel').style.transform = 'rotate(0deg)';
+}
+function turnWheel() {
+  if (wheelTurns >= 6) return;
+  wheelTurns++;
+  var wheel = document.getElementById('prayerWheel');
+  wheel.style.transform = 'rotate('+(wheelTurns*360)+'deg)';
+  var rect = wheel.getBoundingClientRect();
+  spawnSparks(rect.left+rect.width/2, rect.top+rect.height/2, 6);
+  document.getElementById('wheelMsg').textContent = '已转 '+wheelTurns+' / 6 圈 🪔';
+  if (wheelTurns >= 6) {
+    document.getElementById('wheelMsg').textContent = '经筒转满 6 圈！福慧双增，吉祥圆满 🪔';
+    document.getElementById('wheelNext').disabled = false;
+    spawnSparks(rect.left+rect.width/2, rect.top+rect.height/2, 36);
+  }
+}
+
+/* -------- 15. 放河灯 -------- */
+function initRiver() {
+  document.getElementById('riverMsg').textContent = '河灯即将顺水漂流……';
+  document.getElementById('riverNext').disabled = true;
+  document.getElementById('riverArea').querySelectorAll('.river-lantern').forEach(function(e){e.remove();});
+  for (var i = 0; i < 6; i++) {
+    (function(idx){
+      setTimeout(function(){
+        var area = document.getElementById('riverArea');
+        var l = document.createElement('span');
+        l.className = 'river-lantern'; l.textContent = '🏮';
+        l.style.left = (6+idx*16)+'%'; l.style.top = (30+Math.random()*40)+'%';
+        area.appendChild(l);
+        setTimeout(function(){ l.remove(); }, 6000);
+      }, idx*660);
+    })(i);
+  }
+  setTimeout(function(){
+    document.getElementById('riverMsg').textContent = '6 盏河灯顺水漂流！一帆风顺，前程似锦 🏮';
+    document.getElementById('riverNext').disabled = false;
+  }, 6600);
+}
+
+/* -------- 16. 舞龙 -------- */
+function initDragon() {
+  document.getElementById('dragonMsg').textContent = '6 条小龙即将汇聚……';
+  document.getElementById('dragonNext').disabled = true;
+  document.getElementById('dragonArea').querySelectorAll('.dragon-mini').forEach(function(e){e.remove();});
+  var area = document.getElementById('dragonArea');
+  var colors = ['🐉','🐲','🐉','🐲','🐉','🐲'];
+  for (var i = 0; i < 6; i++) {
+    (function(idx){
+      setTimeout(function(){
+        var d = document.createElement('span');
+        d.className = 'dragon-mini'; d.textContent = colors[idx];
+        d.style.left = (6+idx*16)+'%'; d.style.top = (20+Math.random()*40)+'%';
+        d.style.animationDelay = (idx*0.6)+'s';
+        area.appendChild(d);
+        document.getElementById('dragonMsg').textContent = '第 '+(idx+1)+' / 6 条小龙出现 🐉';
+      }, idx*600);
+    })(i);
+  }
+  setTimeout(function(){
+    area.querySelectorAll('.dragon-mini').forEach(function(d){
+      d.style.transition = 'all 1.6s'; d.style.left = '46%'; d.style.top = '40%';
+    });
+    document.getElementById('dragonMsg').textContent = '六龙汇聚…… 🐉🐉🐉';
+  }, 3600);
+  setTimeout(function(){
+    area.querySelectorAll('.dragon-mini').forEach(function(d){d.remove();});
+    var bigD = document.createElement('div');
+    bigD.style.cssText = 'font-size:66px;animation:goldShine 1.6s ease-in-out infinite alternate;';
+    bigD.textContent = '🐉'; area.appendChild(bigD);
+    var banner = document.createElement('div');
+    banner.className = 'golden-name'; banner.style.fontSize = '26px';
+    banner.textContent = '金榜题名'; area.appendChild(banner);
+    document.getElementById('dragonMsg').textContent = '六龙汇聚，大吉大利！🐉';
+    document.getElementById('dragonNext').disabled = false;
+    spawnSparks(window.innerWidth/2, window.innerHeight/2, 66);
+  }, 5600);
+}
+
+/* ========== 功德圆满 ========== */
+function finishAll() {
+  completed[16] = true; updateProgress();
+  showSection(17);
+  document.getElementById('finalName').textContent = userName;
+  document.getElementById('finalReg').textContent = userReg;
+  var blessings = [
+    '点 6 炷香','挂 6 张许愿签','投喂 6 条锦鲤','放 6 盏天灯',
+    '求 6 支上上签','敲状元钟 6 响','鲤跃龙门 ×6','系 6 条红丝带',
+    '摸"福"字 6 次','点 66 盏文昌灯','金榜题名 6 次','撒 666 片桂花',
+    '拜文曲星 6 拜','转经筒 6 圈','放 6 盏河灯','六龙汇聚'
+  ];
+  var ul = document.getElementById('checklist'); ul.innerHTML = '';
+  blessings.forEach(function(b,i){
+    var li = document.createElement('li');
+    li.textContent = b; li.style.animationDelay = (i*0.16)+'s'; ul.appendChild(li);
+  });
+  spawnPetals(166);
+  setTimeout(function(){ spawnSparks(window.innerWidth/2, window.innerHeight/2, 66); }, 600);
+}
+
+/* ========== 重新祈福 ========== */
+function restartAll() {
+  completed.fill(false);
+  userName = ''; userReg = '';
+  document.getElementById('inputName').value = '';
+  document.getElementById('inputReg').value = '';
+  document.getElementById('entryError').textContent = '';
+  showSection(0);
+  document.getElementById('progressFill').style.width = '0%';
+  document.getElementById('progressText').textContent = '0%';
+}
+
+updateProgress();
+</script>
+</body>
+</html>
