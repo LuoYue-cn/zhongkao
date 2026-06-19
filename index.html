@@ -657,15 +657,14 @@ function initIncense() {
   area.querySelectorAll('.incense-stick,.smoke-particle').forEach(function(e){e.remove();});
   document.getElementById('incenseMsg').textContent = '点击香点燃 🕯️';
   document.getElementById('incenseNext').disabled = true;
-  var positions = [10,26,42,58,74,90]; // percentages
+  var positions = [8,24,40,56,72,88]; // percentages
   positions.forEach(function(pct,i){
-    var areaW = area.offsetWidth || 360;
-    var leftPx = areaW * pct / 100;
     var stick = document.createElement('div');
     stick.className = 'incense-stick';
-    stick.style.left = leftPx+'px'; stick.style.bottom = '26px';
+    stick.style.left = pct+'%'; stick.style.bottom = '26px';
     stick.style.height = Math.min(120, area.offsetHeight*0.5)+'px';
     stick.style.zIndex = '1';
+    stick.style.marginLeft = '-2px'; // center stick on position
     stick.innerHTML = '<div class="smoke-glowing"></div>';
     stick.onclick = function(e){
       if (this.classList.contains('lit')) return;
